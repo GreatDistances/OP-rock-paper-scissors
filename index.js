@@ -40,27 +40,27 @@ const getPlayerChoice = () => {
 const playRound = () => {
   let playerChoice = getPlayerChoice();
   let computerChoice = getComputerChoice();
-  console.log(`Player plays: ${playerChoice}, computer plays: ${computerChoice}`);
+  alert(`Player plays: ${playerChoice}, computer plays: ${computerChoice}`);
   if (playerChoice === computerChoice) {
-    console.log("Draw, try again!");
+    alert("Draw, try again!");
     return 0;
   } else if (playerChoice === "rock" && computerChoice === "paper") {
-    console.log("You Lose! Paper beats Rock");
+    alert("You Lose! Paper beats Rock");
     return 2;
   } else if (playerChoice === "paper" && computerChoice === "rock") {
-    console.log("You Win! Paper beats Rock");
+    alert("You Win! Paper beats Rock");
     return 1;
   } else if (playerChoice === "rock" && computerChoice === "scissors") {
-    console.log("You Win! Rock beats Scissors");
+    alert("You Win! Rock beats Scissors");
     return 1;
   } else if (playerChoice === "scissors" && computerChoice === "rock") {
-    console.log("You Lose! Rock beats Scissors");
+    alert("You Lose! Rock beats Scissors");
     return 2;
   } else if (playerChoice === "scissors" && computerChoice === "paper") {
-    console.log("You Win! Scissors beats Paper");
+    alert("You Win! Scissors beats Paper");
     return 1;
   } else if (playerChoice === "paper" && computerChoice === "scissors") {
-    console.log("You Lose! Scissors beats Paper");
+    alert("You Lose! Scissors beats Paper");
     return 2;
   } else {
     return -1;
