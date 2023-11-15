@@ -3,13 +3,20 @@ const btnDiv = document.querySelector(".btnDiv");
 const resultsDiv = document.querySelector(".resultsDiv");
 const scoreDiv = document.querySelector(".scoreDiv");
 
+const finalResultsDiv = document.querySelector(".finalResultsDiv");
+finalResultsDiv.setAttribute("style", "font-size: 20px; font-weight: bold;")
+
 const playGameBtn = document.createElement("button");
 playGameBtn.textContent = "Click here to play Rock, Paper, Scissors";
+playGameBtn.setAttribute("style", "height: 50px;");
 promptDiv.append(playGameBtn);
 
 const rockBtn = document.createElement("button");
 const paperBtn = document.createElement("button");
 const scissorsBtn = document.createElement("button");
+rockBtn.setAttribute("style", "width: 50px; height: 50px; font-size: 20px;");
+paperBtn.setAttribute("style", "width: 50px; height: 50px; font-size: 20px;");
+scissorsBtn.setAttribute("style", "width: 50px; height: 50px; font-size: 20px;");
 
 let playerChoice = "";
 let gameCounter = 1;
@@ -115,6 +122,9 @@ const playRound = () => {
 };
 
 const playGame = () => {
+
+  finalResultsDiv.textContent = "";
+
   gameCounter = 1;
 
   playGameBtn.remove();
@@ -127,6 +137,7 @@ const playGame = () => {
   rockBtn.textContent = "\u{1FAA8}";
   paperBtn.textContent = "\u{1F5DE}";
   scissorsBtn.textContent = "\u{2704}";
+
 };
 
 playGameBtn.addEventListener("click", function (e) {
@@ -134,6 +145,15 @@ playGameBtn.addEventListener("click", function (e) {
 });
 
 const gameOver = () => {
+
+  if (computerScore === 5) {
+    finalResultsDiv.textContent = "COMPUTER WINS";
+    finalResultsDiv.style.color = "red";
+  } else if (playerScore === 5) {
+    finalResultsDiv.textContent = "YOU WIN!"
+    finalResultsDiv.style.color = "blue";
+  }
+
   playerScore = 0;
   computerScore = 0;
   rockBtn.remove();
